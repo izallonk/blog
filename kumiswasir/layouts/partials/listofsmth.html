@@ -1,0 +1,12 @@
+<ul>
+    {{range $key, $item := .collection}}
+<li>
+      {{with eq $key "url"}}
+      <p><span> Github : <a href = "{{ $item |relURL }}"> {{$item}}</a></span></p>
+      {{else}}
+       <p>{{ safeHTML $item}} </p>
+      {{end}}
+      
+</li>
+    {{end}}
+</ul>

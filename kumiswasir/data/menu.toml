@@ -1,0 +1,17 @@
+[[entries]]
+title = "info"
+
+    [entries.info]
+    url = "https://github.com/kumisWasir"
+    text = "ini blog pribadi"
+
+    
+[[entries]]
+title = "Allpost"
+
+    [entries.post_list]
+    section = "post"
+    show_more = true
+    show_more_url = "post"
+    limit = 10
+

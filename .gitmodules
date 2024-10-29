@@ -1,0 +1,4 @@
+[submodule "kumiswasir/public"]
+	path = kumiswasir/public
+	url = https://github.com/kumisWasir/kumiswasir.github.io.git
+	branch = main
