@@ -1,9 +1,0 @@
-{{define  "main"}}
-   
-    <div class = "content-list">
-    {{.Content}}
-    {{partial "listpost.html" (dict "context" . "collection" .Site.Data.menu.entries) }}
-    
-  </div>
-
-{{end }}
