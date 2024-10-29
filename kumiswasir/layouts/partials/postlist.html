@@ -1,0 +1,42 @@
+ {{$posts := ""}}
+ {{if .section}}
+    {{$posts = (where site.RegularPages "Section" .section)}}
+ {{end}}
+
+{{ $overlimit := ""}}
+{{if (and (gt (len $posts) .limit))}}
+    {{$overlimit = true}}
+    {{else}}
+    {{$overlimit = false}}
+{{end}}
+
+{{$numerator := 0}}
+{{$limits := .limit}}
+
+ {{if (gt (len $posts) 0 )}}
+    {{if .limit}}
+        {{$posts = (first .limit $posts)}}
+    {{end}}
+<ul>
+
+ {{ range $post := $posts}}
+    
+    <li>
+         <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+		{{ .Date.Format "January 2, 2006" }}
+	</time>
+        <a href = "{{$post.Permalink | relURL}}"> {{$post.Title}} </a>
+    </li>
+    {{$numerator = add $numerator 1}}
+    {{if (eq $numerator $limits) }}
+       
+        {{break }}
+    {{end}}
+ {{end}}
+    {{if and .show_more $overlimit}}
+        <li> <a href = "{{.show_more_url | relURL}}">More .....</a></li>
+    {{end}}
+ </ul>
+ {{end}}
+
+
